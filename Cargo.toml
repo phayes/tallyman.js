@@ -2,6 +2,7 @@
 name = "tallyman"
 version = "0.1.0"
 authors = ["phayes <patrick.d.hayes@gmail.com>"]
+edition = "2018"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
@@ -10,8 +11,11 @@ crate-type = ["cdylib", "rlib"]
 default = ["console_error_panic_hook"]
 
 [dependencies]
-cfg-if = "0.1.2"
-wasm-bindgen = "0.2"
+cfg-if = "0.1.6"
+wasm-bindgen = { features = ["serde-serialize"], version = "0.2" }
+serde = "1.0.80"
+serde_derive = "1.0.80"
+tallyman_rs = { git = "https://github.com/phayes/tallyman", package = "tallyman" }
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
 # logging them with `console.error`. This is great for development, but requires
